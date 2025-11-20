@@ -139,12 +139,12 @@
                               <rect width="120" height="120" fill="none" stroke="%23055" stroke-width="0.5"/>\
                           </svg>');
         background-size: cover;
-        margin: 5% auto;
+        margin: 8% auto;
         padding: 0;
         border: 1px solid #0ff;
         border-radius: 14px;
-        width: 90%;
-        max-width: 900px;
+        width: 85%;
+        max-width: 700px;
         box-shadow: 0 0 50px rgba(0,255,255,0.4);
         animation: modalFadeIn 0.3s ease-out;
         position: relative;
@@ -181,17 +181,17 @@
 
     .modal h1 {
         text-align: center;
-        margin-top: 30px;
-        font-size: 48px;
+        margin-top: 20px;
+        font-size: 36px;
         color: #26e5ff;
         text-shadow: 0 0 18px #00eaff;
         font-weight: 700;
     }
 
     .form-container {
-        max-width: 900px;
-        margin: 40px auto;
-        padding: 40px;
+        max-width: 700px;
+        margin: 20px auto;
+        padding: 30px;
         background: rgba(0, 10, 25, 0.7);
         border-radius: 14px;
         border: 1px solid #0ff;
@@ -218,6 +218,20 @@
         outline: none;
         transition: 0.2s;
         box-sizing: border-box;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%239fdfff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6,9 12,15 18,9"></polyline></svg>');
+        background-repeat: no-repeat;
+        background-position: right 16px center;
+        background-size: 16px;
+        padding-right: 48px;
+    }
+
+    .form-container select option {
+        background: #031727;
+        color: #c8e9ff;
+        padding: 12px;
     }
 
     .form-container input:focus,
@@ -251,17 +265,18 @@
 
     @media (max-width: 768px) {
         .modal-content {
-            margin: 2% auto;
+            margin: 5% auto;
             width: 95%;
         }
 
         .modal h1 {
-            font-size: 36px;
+            font-size: 28px;
+            margin-top: 15px;
         }
 
         .form-container {
             padding: 20px;
-            margin: 20px auto;
+            margin: 15px auto;
         }
     }
 </style>
