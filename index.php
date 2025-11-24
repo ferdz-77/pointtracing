@@ -21,6 +21,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($nome) || empty($email) || empty($telefone)) {
         $mensagem = "Por favor, preencha todos os campos obrigatórios.";
         $tipo_mensagem = "erro";
+    } elseif (empty($config['smtp']['password'])) {
+        $mensagem = "Erro: Senha de email não configurada. Configure a senha de app no arquivo config.php";
+        $tipo_mensagem = "erro";
     } else {
         // Configurar PHPMailer
         $mail = new PHPMailer(true);
@@ -34,6 +37,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $mail->Password = $config['smtp']['password'];
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             $mail->Port = $config['smtp']['port'];
+
+            // Configurações adicionais para compatibilidade
+            $mail->SMTPDebug = 0; // Mude para 2 para debug detalhado
+            $mail->SMTPOptions = array(
+                'ssl' => array(
+                    'verify_peer' => false,
+                    'verify_peer_name' => false,
+                    'allow_self_signed' => true
+                )
+            );
 
             // Configurações do email
             $mail->setFrom($config['from']['email'], $config['from']['name']);
@@ -91,7 +104,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $tipo_mensagem = "sucesso";
 
         } catch (Exception $e) {
-            $mensagem = "Erro ao enviar inscrição. Tente novamente mais tarde.";
+            $mensagem = "Erro ao enviar inscrição: " . $e->getMessage() . ". Tente novamente mais tarde.";
             $tipo_mensagem = "erro";
         }
     }
