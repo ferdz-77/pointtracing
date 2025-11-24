@@ -1,3 +1,103 @@
+<?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require 'PHPMailer/src/Exception.php';
+require 'PHPMailer/src/PHPMailer.php';
+require 'PHPMailer/src/SMTP.php';
+require 'config.php';
+
+$config = require 'config.php';
+
+// Processar formulário quando enviado
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $nome = htmlspecialchars($_POST['nome'] ?? '');
+    $email = htmlspecialchars($_POST['email'] ?? '');
+    $telefone = htmlspecialchars($_POST['telefone'] ?? '');
+    $profissao = htmlspecialchars($_POST['profissao'] ?? '');
+    $dispositivo = htmlspecialchars($_POST['dispositivo'] ?? '');
+
+    // Validar campos obrigatórios
+    if (empty($nome) || empty($email) || empty($telefone)) {
+        $mensagem = "Por favor, preencha todos os campos obrigatórios.";
+        $tipo_mensagem = "erro";
+    } else {
+        // Configurar PHPMailer
+        $mail = new PHPMailer(true);
+
+        try {
+            // Configurações do servidor
+            $mail->isSMTP();
+            $mail->Host = $config['smtp']['host'];
+            $mail->SMTPAuth = true;
+            $mail->Username = $config['smtp']['username'];
+            $mail->Password = $config['smtp']['password'];
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+            $mail->Port = $config['smtp']['port'];
+
+            // Configurações do email
+            $mail->setFrom($config['from']['email'], $config['from']['name']);
+            $mail->addAddress($config['to']['email'], $config['to']['name']);
+
+            // Conteúdo do email
+            $mail->isHTML(true);
+            $mail->Subject = 'Nova inscrição no Beta - Point Tracing';
+
+            $mail->Body = "
+            <html>
+            <head>
+                <style>
+                    body { font-family: Arial, sans-serif; background: #f4f4f4; padding: 20px; }
+                    .container { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+                    h2 { color: #00eaff; border-bottom: 2px solid #00eaff; padding-bottom: 10px; }
+                    .info { margin: 15px 0; padding: 10px; background: #f9f9f9; border-left: 4px solid #00eaff; }
+                    .label { font-weight: bold; color: #333; }
+                </style>
+            </head>
+            <body>
+                <div class='container'>
+                    <h2>🎯 Nova Inscrição no Beta - Point Tracing</h2>
+
+                    <div class='info'>
+                        <span class='label'>Nome:</span> {$nome}
+                    </div>
+
+                    <div class='info'>
+                        <span class='label'>E-mail:</span> {$email}
+                    </div>
+
+                    <div class='info'>
+                        <span class='label'>Telefone:</span> {$telefone}
+                    </div>
+
+                    <div class='info'>
+                        <span class='label'>Profissão:</span> {$profissao}
+                    </div>
+
+                    <div class='info'>
+                        <span class='label'>Dispositivo:</span> {$dispositivo}
+                    </div>
+
+                    <p><strong>Data da inscrição:</strong> " . date('d/m/Y H:i:s') . "</p>
+                </div>
+            </body>
+            </html>
+            ";
+
+            $mail->AltBody = "Nova inscrição no Beta - Point Tracing\n\nNome: {$nome}\nE-mail: {$email}\nTelefone: {$telefone}\nProfissão: {$profissao}\nDispositivo: {$dispositivo}\nData: " . date('d/m/Y H:i:s');
+
+            $mail->send();
+            $mensagem = "Inscrição enviada com sucesso! Entraremos em contato em breve.";
+            $tipo_mensagem = "sucesso";
+
+        } catch (Exception $e) {
+            $mensagem = "Erro ao enviar inscrição. Tente novamente mais tarde.";
+            $tipo_mensagem = "erro";
+        }
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -317,18 +417,18 @@
         <h1>Participe do Beta Exclusivo</h1>
 
         <div class="form-container">
-            <form>
+            <form method="POST" action="">
                 <label>Nome Completo</label>
-                <input type="text" placeholder="Digite seu nome completo">
+                <input type="text" name="nome" placeholder="Digite seu nome completo" required>
 
                 <label>E-mail</label>
-                <input type="email" placeholder="Seu e-mail">
+                <input type="email" name="email" placeholder="Seu e-mail" required>
 
                 <label>Telefone</label>
-                <input type="text" placeholder="(DDD) 00000-0000">
+                <input type="text" name="telefone" placeholder="(DDD) 00000-0000" required>
 
                 <label>Profissão</label>
-                <select>
+                <select name="profissao" required>
                     <option selected disabled>Selecione sua profissão</option>
                     <option>Engenheiro</option>
                     <option>Arquiteto</option>
@@ -338,14 +438,14 @@
                 </select>
 
                 <label>Dispositivo</label>
-                <select>
+                <select name="dispositivo" required>
                     <option selected disabled>Selecione seu dispositivo</option>
                     <option>iPhone</option>
                     <option>iPad</option>
                     <option>Android</option>
                 </select>
 
-                <button class="btn">Receber Acesso ao Beta</button>
+                <button type="submit" class="btn">Receber Acesso ao Beta</button>
             </form>
         </div>
     </div>
@@ -385,7 +485,85 @@ document.addEventListener('keydown', function(event) {
         document.body.style.overflow = 'auto';
     }
 });
+
+// Mostrar mensagens de sucesso/erro
+<?php if (isset($mensagem)): ?>
+document.addEventListener('DOMContentLoaded', function() {
+    // Criar elemento de mensagem
+    const messageDiv = document.createElement('div');
+    messageDiv.className = 'message <?php echo $tipo_mensagem; ?>';
+    messageDiv.innerHTML = '<?php echo $mensagem; ?>';
+
+    // Estilos da mensagem
+    messageDiv.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        padding: 15px 25px;
+        border-radius: 8px;
+        color: white;
+        font-weight: bold;
+        z-index: 10000;
+        max-width: 400px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        animation: slideIn 0.3s ease-out;
+    `;
+
+    if ('<?php echo $tipo_mensagem; ?>' === 'sucesso') {
+        messageDiv.style.background = 'linear-gradient(135deg, #00eaff, #00c8ff)';
+        messageDiv.style.border = '1px solid #00eaff';
+    } else {
+        messageDiv.style.background = 'linear-gradient(135deg, #ff4757, #ff3838)';
+        messageDiv.style.border = '1px solid #ff4757';
+    }
+
+    // Adicionar ao body
+    document.body.appendChild(messageDiv);
+
+    // Abrir modal se foi sucesso
+    <?php if ($tipo_mensagem === 'sucesso'): ?>
+    setTimeout(function() {
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    }, 1000);
+    <?php endif; ?>
+
+    // Remover mensagem após 5 segundos
+    setTimeout(function() {
+        messageDiv.style.animation = 'slideOut 0.3s ease-in';
+        setTimeout(function() {
+            if (messageDiv.parentNode) {
+                messageDiv.parentNode.removeChild(messageDiv);
+            }
+        }, 300);
+    }, 5000);
+});
+<?php endif; ?>
 </script>
+
+<style>
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+</style>
 
 </body>
 </html>
