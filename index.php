@@ -40,6 +40,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             // Configurações adicionais para compatibilidade
             $mail->SMTPDebug = 0; // Mude para 2 para debug detalhado
+            $mail->CharSet = 'UTF-8';
+            $mail->Encoding = 'base64';
             $mail->SMTPOptions = array(
                 'ssl' => array(
                     'verify_peer' => false,
@@ -59,6 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $mail->Body = "
             <html>
             <head>
+                <meta charset='UTF-8'>
                 <style>
                     body { font-family: Arial, sans-serif; background: #f4f4f4; padding: 20px; }
                     .container { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }

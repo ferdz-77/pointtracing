@@ -41,6 +41,8 @@ try {
     $mail->Port = $config['smtp']['port'];
 
     $mail->SMTPDebug = 2; // Debug detalhado
+    $mail->CharSet = 'UTF-8';
+    $mail->Encoding = 'base64';
     $mail->SMTPOptions = array(
         'ssl' => array(
             'verify_peer' => false,
@@ -56,7 +58,7 @@ try {
 
     $mail->isHTML(true);
     $mail->Subject = 'Teste - Point Tracing Email System';
-    $mail->Body = '<h2>🎯 Teste de Email</h2><p>Este é um teste do sistema de email da Point Tracing.</p><p>Data: ' . date('d/m/Y H:i:s') . '</p>';
+    $mail->Body = '<html><head><meta charset="UTF-8"></head><body><h2>🎯 Teste de Email</h2><p>Este é um teste do sistema de email da Point Tracing.</p><p>Data: ' . date('d/m/Y H:i:s') . '</p></body></html>';
     $mail->AltBody = 'Teste de Email - Point Tracing - ' . date('d/m/Y H:i:s');
 
     echo "📧 Enviando email...\n";

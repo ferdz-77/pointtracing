@@ -21,7 +21,7 @@ return [
         // Configurações Gmail (recomendado)
         'host' => 'smtp.gmail.com',
         'username' => 'ferdzagenciadigital@gmail.com',
-        'password' => 'Fe006132#', // <-- PRECISA GERAR SENHA DE APP NO GMAIL
+        'password' => 'xslx ezgi dilg izzw', // <-- PRECISA GERAR SENHA DE APP NO GMAIL
         'port' => 587,
         'encryption' => 'tls'
 
