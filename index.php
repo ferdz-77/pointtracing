@@ -202,7 +202,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     .hero-icon {
-        width: 150px;
+        width: 200px;
         max-width: 100%;
         height: auto;
         filter: drop-shadow(0 0 15px #00eaff);
@@ -216,11 +216,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         margin-bottom: 30px;
     }
 
+    .uplab-section {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        margin: 20px auto 40px;
+        max-width: 800px;
+    }
+
     .uplab-logo {
-        width: 120px;
+        width: 100px;
         max-width: 100%;
         height: auto;
-        margin-bottom: 20px;
         filter: drop-shadow(0 0 10px #00eaff);
         opacity: 0.9;
     }
@@ -228,11 +236,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     .uplab-text {
         font-size: 18px;
         color: #b8d8f0;
-        max-width: 600px;
-        margin: 20px auto 40px;
         line-height: 1.5;
-        text-align: center;
         font-weight: 500;
+        margin: 0;
+        flex: 1;
     }
 
     .hero-title {
@@ -260,10 +267,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     @media (max-width: 768px) {
         .hero-title { font-size: 38px; }
         .hero-subtitle { font-size: 16px; }
-        .hero-icon { width: 120px; }
-        .uplab-logo { width: 100px; }
-        .uplab-text { font-size: 16px; margin: 15px auto 30px; }
+        .hero-icon { width: 150px; }
+        .uplab-logo { width: 80px; }
+        .uplab-text { font-size: 16px; }
         .logos-container { flex-direction: column; gap: 20px; }
+        .uplab-section { flex-direction: column; gap: 15px; text-align: center; }
     }
 
     /* Modal Styles */
@@ -439,9 +447,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <img src="assets/images/logo-point-tracing.png"
              alt="Point Tracing Logo"
              class="hero-icon">
-        <img src="assets/images/UpLab Branco Logo.png"
-             alt="UpLab SENAI Logo"
-             class="uplab-logo">
     </div>
 
     <!-- Título -->
@@ -455,10 +460,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         Transforme seus projetos com tecnologia de ponta.
     </p>
 
-    <!-- Texto UpLab -->
-    <p class="uplab-text">
-        Orgulhosamente parte do ecossistema UpLab SENAI, acelerando inovação em construção civil.
-    </p>
+    <!-- Texto UpLab com logo -->
+    <div class="uplab-section">
+        <img src="assets/images/UpLab Branco Logo.png"
+             alt="UpLab SENAI Logo"
+             class="uplab-logo">
+        <p class="uplab-text">
+            Orgulhosamente parte do ecossistema UpLab SENAI, acelerando inovação em construção civil.
+        </p>
+    </div>
 
     <!-- Botão -->
     <a href="#" class="btn btn-primary" id="openModal">Participar do Beta Exclusivo</a>
