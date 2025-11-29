@@ -209,6 +209,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         filter: drop-shadow(0 0 15px #00eaff);
     }
 
+    .uplab-logo {
+        width: 120px;
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+        filter: drop-shadow(0 0 10px #00eaff);
+        opacity: 0.9;
+    }
+
+    .uplab-text {
+        font-size: 18px;
+        color: #b8d8f0;
+        max-width: 600px;
+        margin: 20px auto 40px;
+        line-height: 1.5;
+        text-align: center;
+        font-weight: 500;
+    }
+
     .hero-title {
         font-size: clamp(36px, 6vw, 72px);
         font-weight: var(--font-weight-bold);
@@ -235,6 +254,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         .hero-title { font-size: 38px; }
         .hero-subtitle { font-size: 16px; }
         .hero-icon { width: 120px; }
+        .uplab-logo { width: 100px; }
+        .uplab-text { font-size: 16px; margin: 15px auto 30px; }
     }
 
     /* Modal Styles */
@@ -410,6 +431,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
          alt="Point Tracing Logo"
          class="hero-icon">
 
+    <!-- Logo UpLab -->
+    <img src="assets/images/UpLab Branco Logo.png"
+         alt="UpLab SENAI Logo"
+         class="uplab-logo">
+
     <!-- Título -->
     <h1 class="hero-title">
         Point Tracing Rastreamento Inteligente para Construção Civil
@@ -419,6 +445,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <p class="hero-subtitle">
         Realidade Aumentada com IA para cálculos automáticos e precisão em tempo real.
         Transforme seus projetos com tecnologia de ponta.
+    </p>
+
+    <!-- Texto UpLab -->
+    <p class="uplab-text">
+        Orgulhosamente parte do ecossistema UpLab SENAI, acelerando inovação em construção civil.
     </p>
 
     <!-- Botão -->

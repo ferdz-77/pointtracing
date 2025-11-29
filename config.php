@@ -39,8 +39,8 @@ return [
         'name' => 'Point Tracing'
     ],
     'to' => [
-        'email' => 'fernandodev@hotmail.com',
-        'name' => 'Fernando'
+        'email' => 'pointtracing@gmail.com',
+        'name' => 'Point Tracing' 
     ]
 ];
 ?>
