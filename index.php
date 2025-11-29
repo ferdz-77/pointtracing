@@ -220,13 +220,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 20px;
+        gap: 30px;
         margin: 20px auto 40px;
-        max-width: 800px;
+        max-width: 900px;
     }
 
     .uplab-logo {
-        width: 120px;
+        width: 150px;
         max-width: 100%;
         height: auto;
         filter: drop-shadow(0 0 10px #00eaff);
@@ -268,7 +268,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         .hero-title { font-size: 38px; }
         .hero-subtitle { font-size: 16px; }
         .hero-icon { width: 180px; }
-        .uplab-logo { width: 100px; }
+        .uplab-logo { width: 120px; }
         .uplab-text { font-size: 16px; }
         .logos-container { flex-direction: column; gap: 20px; }
         .uplab-section { flex-direction: column; gap: 15px; text-align: center; }
