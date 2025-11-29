@@ -205,8 +205,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         width: 150px;
         max-width: 100%;
         height: auto;
-        margin-bottom: 30px;
         filter: drop-shadow(0 0 15px #00eaff);
+    }
+
+    .logos-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        margin-bottom: 30px;
     }
 
     .uplab-logo {
@@ -256,6 +263,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         .hero-icon { width: 120px; }
         .uplab-logo { width: 100px; }
         .uplab-text { font-size: 16px; margin: 15px auto 30px; }
+        .logos-container { flex-direction: column; gap: 20px; }
     }
 
     /* Modal Styles */
@@ -426,15 +434,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <section class="hero">
 
-    <!-- Logo -->
-    <img src="assets/images/logo-point-tracing.png"
-         alt="Point Tracing Logo"
-         class="hero-icon">
-
-    <!-- Logo UpLab -->
-    <img src="assets/images/UpLab Branco Logo.png"
-         alt="UpLab SENAI Logo"
-         class="uplab-logo">
+    <!-- Logos -->
+    <div class="logos-container">
+        <img src="assets/images/logo-point-tracing.png"
+             alt="Point Tracing Logo"
+             class="hero-icon">
+        <img src="assets/images/UpLab Branco Logo.png"
+             alt="UpLab SENAI Logo"
+             class="uplab-logo">
+    </div>
 
     <!-- Título -->
     <h1 class="hero-title">
