@@ -197,7 +197,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     .hero {
         position: relative;
         z-index: 2;
-        padding: 120px 20px;
+        padding: 20px;
         text-align: center;
     }
 
