@@ -274,6 +274,93 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         .uplab-section { flex-direction: column; gap: 15px; text-align: center; }
     }
 
+    /* Seção de Benefícios */
+    .benefits {
+        margin: 60px auto;
+        max-width: 1200px;
+        padding: 0 20px;
+    }
+
+    .benefits-title {
+        font-size: 32px;
+        color: var(--pt-cyan-neon);
+        text-align: center;
+        margin-bottom: 50px;
+        font-weight: var(--font-weight-bold);
+        text-shadow: 0 0 15px var(--pt-cyan-glow);
+    }
+
+    .benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 40px;
+        margin-top: 40px;
+    }
+
+    .benefit-item {
+        background: rgba(0, 10, 25, 0.6);
+        border: 1px solid rgba(0, 255, 255, 0.2);
+        border-radius: 16px;
+        padding: 30px;
+        text-align: center;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(10px);
+    }
+
+    .benefit-item:hover {
+        transform: translateY(-5px);
+        border-color: var(--pt-cyan-neon);
+        box-shadow: 0 10px 30px rgba(0, 217, 255, 0.2);
+    }
+
+    .benefit-icon {
+        font-size: 48px;
+        margin-bottom: 20px;
+        display: block;
+    }
+
+    .benefit-item h3 {
+        color: var(--pt-cyan-neon);
+        font-size: 24px;
+        margin-bottom: 15px;
+        font-weight: var(--font-weight-semibold);
+    }
+
+    .benefit-item p {
+        color: #d8e8f0;
+        line-height: 1.6;
+        font-size: 16px;
+    }
+
+    @media (max-width: 768px) {
+        .benefits {
+            margin: 40px auto;
+            padding: 0 15px;
+        }
+
+        .benefits-title {
+            font-size: 28px;
+            margin-bottom: 30px;
+        }
+
+        .benefits-grid {
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        .benefit-item {
+            padding: 20px;
+        }
+
+        .benefit-icon {
+            font-size: 40px;
+        }
+
+        .benefit-item h3 {
+            font-size: 20px;
+        }
+    }
+
     /* Modal Styles */
     .modal {
         display: none;
@@ -469,6 +556,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             Orgulhosamente parte do ecossistema UpLab SENAI, acelerando inovação em construção civil.
         </p>
     </div>
+
+    <!-- Seção de Benefícios -->
+    <section class="benefits">
+        <h2 class="benefits-title">Revolucione sua Construção com Realidade Aumentada</h2>
+        <div class="benefits-grid">
+            <div class="benefit-item">
+                <div class="benefit-icon">🔍</div>
+                <h3>Precisão em Tempo Real</h3>
+                <p>Visualize medições exatas diretamente no canteiro de obras através do seu dispositivo móvel.</p>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">🤖</div>
+                <h3>IA Inteligente</h3>
+                <p>Cálculos automáticos e sugestões inteligentes para otimizar seus projetos de construção.</p>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">⚡</div>
+                <h3>Eficiência Máxima</h3>
+                <p>Reduza erros e acelere processos com tecnologia de ponta em realidade aumentada.</p>
+            </div>
+        </div>
+    </section>
 
     <!-- Botão -->
     <a href="#" class="btn btn-primary" id="openModal">Participar do Beta Exclusivo</a>
