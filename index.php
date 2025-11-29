@@ -371,36 +371,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         font-size: 20px;
         color: #d8e8f0;
         line-height: 1.6;
-        margin-bottom: 40px;
+        margin-bottom: 20px;
         max-width: 700px;
         margin-left: auto;
         margin-right: auto;
     }
 
-    .stats {
-        display: flex;
-        justify-content: center;
-        gap: 60px;
-        flex-wrap: wrap;
-    }
-
-    .stat {
-        text-align: center;
-    }
-
-    .stat-number {
-        display: block;
-        font-size: 48px;
-        font-weight: var(--font-weight-bold);
+    .beta-promise {
+        font-size: 18px;
         color: var(--pt-cyan-neon);
-        text-shadow: 0 0 10px var(--pt-cyan-glow);
-        margin-bottom: 10px;
-    }
-
-    .stat-text {
-        font-size: 16px;
-        color: #b8d8f0;
         font-weight: var(--font-weight-semibold);
+        margin-top: 30px;
     }
 
     /* Rodapé */
@@ -440,12 +421,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             font-size: 18px;
         }
 
-        .stats {
-            gap: 30px;
-        }
-
-        .stat-number {
-            font-size: 36px;
+        .beta-promise {
+            font-size: 16px;
         }
 
         .footer {
@@ -674,21 +651,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <!-- Seção Persuasiva -->
     <section class="persuasive">
         <h2>Não Perca Essa Oportunidade</h2>
-        <p>Seja um dos primeiros profissionais da construção civil a revolucionar seus projetos com tecnologia de ponta. Junte-se ao beta e tenha acesso antecipado a ferramentas que vão transformar sua produtividade.</p>
-        <div class="stats">
-            <div class="stat">
-                <span class="stat-number">100%</span>
-                <span class="stat-text">Mais Precisão</span>
-            </div>
-            <div class="stat">
-                <span class="stat-number">50%</span>
-                <span class="stat-text">Redução de Erros</span>
-            </div>
-            <div class="stat">
-                <span class="stat-number">24/7</span>
-                <span class="stat-text">Suporte Técnico</span>
-            </div>
-        </div>
+        <p>Seja um dos primeiros profissionais da construção civil a revolucionar seus projetos com tecnologia de ponta. Junte-se ao beta e tenha acesso antecipado a ferramentas que vão transformar sua produtividade com realidade aumentada e IA inteligente.</p>
+        <p class="beta-promise">Durante o período beta, você terá suporte prioritário e feedback direto para moldar o futuro da construção civil.</p>
     </section>
 
     <!-- Rodapé -->
