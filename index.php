@@ -202,7 +202,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     .hero-icon {
-        width: 200px;
+        width: 250px;
         max-width: 100%;
         height: auto;
         filter: drop-shadow(0 0 15px #00eaff);
@@ -226,7 +226,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     .uplab-logo {
-        width: 100px;
+        width: 120px;
         max-width: 100%;
         height: auto;
         filter: drop-shadow(0 0 10px #00eaff);
@@ -267,8 +267,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     @media (max-width: 768px) {
         .hero-title { font-size: 38px; }
         .hero-subtitle { font-size: 16px; }
-        .hero-icon { width: 150px; }
-        .uplab-logo { width: 80px; }
+        .hero-icon { width: 180px; }
+        .uplab-logo { width: 100px; }
         .uplab-text { font-size: 16px; }
         .logos-container { flex-direction: column; gap: 20px; }
         .uplab-section { flex-direction: column; gap: 15px; text-align: center; }
