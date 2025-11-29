@@ -351,6 +351,108 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
+    /* Seção Persuasiva */
+    .persuasive {
+        margin: 80px auto 60px;
+        max-width: 1000px;
+        padding: 0 20px;
+        text-align: center;
+    }
+
+    .persuasive h2 {
+        font-size: 36px;
+        color: var(--pt-cyan-neon);
+        margin-bottom: 20px;
+        font-weight: var(--font-weight-bold);
+        text-shadow: 0 0 15px var(--pt-cyan-glow);
+    }
+
+    .persuasive p {
+        font-size: 20px;
+        color: #d8e8f0;
+        line-height: 1.6;
+        margin-bottom: 40px;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .stats {
+        display: flex;
+        justify-content: center;
+        gap: 60px;
+        flex-wrap: wrap;
+    }
+
+    .stat {
+        text-align: center;
+    }
+
+    .stat-number {
+        display: block;
+        font-size: 48px;
+        font-weight: var(--font-weight-bold);
+        color: var(--pt-cyan-neon);
+        text-shadow: 0 0 10px var(--pt-cyan-glow);
+        margin-bottom: 10px;
+    }
+
+    .stat-text {
+        font-size: 16px;
+        color: #b8d8f0;
+        font-weight: var(--font-weight-semibold);
+    }
+
+    /* Rodapé */
+    .footer {
+        background: rgba(0, 10, 25, 0.8);
+        padding: 40px 20px;
+        text-align: center;
+        border-top: 1px solid rgba(0, 255, 255, 0.1);
+    }
+
+    .footer-content p {
+        margin: 10px 0;
+        color: #9fdfff;
+        font-size: 14px;
+    }
+
+    .footer a {
+        color: var(--pt-cyan-neon);
+        text-decoration: none;
+    }
+
+    .footer a:hover {
+        text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+        .persuasive {
+            margin: 60px auto 40px;
+            padding: 0 15px;
+        }
+
+        .persuasive h2 {
+            font-size: 28px;
+        }
+
+        .persuasive p {
+            font-size: 18px;
+        }
+
+        .stats {
+            gap: 30px;
+        }
+
+        .stat-number {
+            font-size: 36px;
+        }
+
+        .footer {
+            padding: 30px 15px;
+        }
+    }
+
     /* Modal Styles */
     .modal {
         display: none;
@@ -569,7 +671,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <!-- Botão -->
     <a href="#" class="btn btn-primary" id="openModal">Participar do Beta Exclusivo</a>
 
-</section>
+    <!-- Seção Persuasiva -->
+    <section class="persuasive">
+        <h2>Não Perca Essa Oportunidade</h2>
+        <p>Seja um dos primeiros profissionais da construção civil a revolucionar seus projetos com tecnologia de ponta. Junte-se ao beta e tenha acesso antecipado a ferramentas que vão transformar sua produtividade.</p>
+        <div class="stats">
+            <div class="stat">
+                <span class="stat-number">100%</span>
+                <span class="stat-text">Mais Precisão</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">50%</span>
+                <span class="stat-text">Redução de Erros</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">24/7</span>
+                <span class="stat-text">Suporte Técnico</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Point Tracing. Todos os direitos reservados.</p>
+            <p>Contato: <a href="mailto:pointtracing@gmail.com">pointtracing@gmail.com</a></p>
+            <p>Desenvolvido com ❤️ para a construção civil do futuro.</p>
+        </div>
+    </footer>
 
 <!-- Modal -->
 <div id="betaModal" class="modal">
