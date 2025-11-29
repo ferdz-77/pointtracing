@@ -313,12 +313,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         box-shadow: 0 10px 30px rgba(0, 217, 255, 0.2);
     }
 
-    .benefit-icon {
-        font-size: 48px;
-        margin-bottom: 20px;
-        display: block;
-    }
-
     .benefit-item h3 {
         color: var(--pt-cyan-neon);
         font-size: 24px;
@@ -350,10 +344,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         .benefit-item {
             padding: 20px;
-        }
-
-        .benefit-icon {
-            font-size: 40px;
         }
 
         .benefit-item h3 {
@@ -562,17 +552,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <h2 class="benefits-title">Revolucione sua Construção com Realidade Aumentada</h2>
         <div class="benefits-grid">
             <div class="benefit-item">
-                <div class="benefit-icon">🔍</div>
                 <h3>Precisão em Tempo Real</h3>
                 <p>Visualize medições exatas diretamente no canteiro de obras através do seu dispositivo móvel.</p>
             </div>
             <div class="benefit-item">
-                <div class="benefit-icon">🤖</div>
                 <h3>IA Inteligente</h3>
                 <p>Cálculos automáticos e sugestões inteligentes para otimizar seus projetos de construção.</p>
             </div>
             <div class="benefit-item">
-                <div class="benefit-icon">⚡</div>
                 <h3>Eficiência Máxima</h3>
                 <p>Reduza erros e acelere processos com tecnologia de ponta em realidade aumentada.</p>
             </div>
