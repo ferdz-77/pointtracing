@@ -248,7 +248,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         margin-bottom: var(--space-24);
         color: var(--pt-cyan-neon);
         line-height: var(--line-height-tight);
-        text-shadow: 0 0 20px var(--pt-cyan-glow), 0 0 40px var(--pt-cyan-glow), 0 0 60px var(--pt-cyan-glow);
+        text-shadow: 0 0 10px var(--pt-cyan-glow), 0 0 20px var(--pt-cyan-glow), 0 0 60px var(--pt-cyan-glow);
         animation: shimmer 3s ease-in-out infinite;
         max-width: 900px;
         margin: 0 auto var(--space-24);
